@@ -1,5 +1,7 @@
 import { useState} from "react";
 
+var msgClass = "bg-secondary bg-opacity-25 mt-1"
+
 export default function App() {
 	const [message,setmessage] = useState("");
   const [messageList,setmessageList] = useState([]);
@@ -33,10 +35,24 @@ export default function App() {
       />
     </div>
 
+    
     {messageList.map((item, index) =>(
-      <div className="bg-secondary bg-opacity-25 mt-1" key={index}>
-            {item}
-      </div>
+      // <div className="bg-secondary bg-opacity-25 mt-1" key={index}>
+      //       {item}
+      // </div>
+      
+      <div
+              key={index}
+              className={
+                index % 2 == 0
+                  ? "text-start " + msgClass
+                  : "text-end " + msgClass
+              }
+            >
+              {item}
+            </div>
+
+
     ))};
 
   </div>
